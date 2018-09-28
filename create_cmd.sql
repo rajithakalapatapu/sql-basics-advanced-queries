@@ -8,14 +8,14 @@ drop table Department CASCADE CONSTRAINTS;
 drop table Employee CASCADE CONSTRAINTS;
 
 Create table Employee(Fname varchar(50) NOT NULL, 
-		      Minit varchar(50) NOT NULL,
+		      Minit varchar(50),
 		      Lname varchar(50) NOT NULL,
 		      Ssn int NOT NULL,
 		      Bdate date NOT NULL,
 		      Address varchar(256) NOT NULL,
 		      Sex char(10) NOT NULL,
 		      Salary int NOT NULL,
-		      Super_ssn int NOT NULL,
+		      Super_ssn int,
 		      Dno int NOT NULL);
 
 Create table Department(Dname varchar(32) NOT NULL,
