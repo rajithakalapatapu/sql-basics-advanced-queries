@@ -1,6 +1,12 @@
-files = ['DEPARTMENT', 'EMPLOYEE', 'DEPT_LOCATIONS', 'PROJECT', 'WORKS_ON', 'DEPENDENT']
-
 import cx_Oracle
+
+files = [
+    'DEPARTMENT',
+    'EMPLOYEE',
+    'DEPT_LOCATIONS',
+    'PROJECT',
+    'WORKS_ON',
+    'DEPENDENT']
 connection = cx_Oracle.connect('system/123456@localhost:1521/ORCLCDB')
 cursor = connection.cursor()
 
