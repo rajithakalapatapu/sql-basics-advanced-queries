@@ -1,0 +1,141 @@
+SQL> start 4_queries.sql
+
+
+-----------------------------------------------------------------------------------------------
+
+SQL> insert into DEPARTMENT values('Services',1,'123456789','11-AUG-2012');
+insert into DEPARTMENT values('Services',1,'123456789','11-AUG-2012')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C008831) violated 
+
+The above failed because the department table has an entry for dnumber = 1
+Headquarters				  1  888665555 19-JUN-71
+
+-----------------------------------------------------------------------------------------------
+
+SQL> insert into DEPARTMENT values('Purchasing',3,'990110110','02-FEB-2013');
+insert into DEPARTMENT values('Purchasing',3,'990110110','02-FEB-2013')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C008831) violated 
+
+The above insert failed as department table already has another entry for dnumber=3
+
+DNAME				    DNUMBER    MGR_SSN MGR_START
+-------------------------------- ---------- ---------- ---------
+Networking				  3  110110110 15-MAY-09
+
+
+-----------------------------------------------------------------------------------------------
+
+
+SQL> insert into DEPARTMENT values('Customers',12,'333445555','14-JAN-2013');
+
+1 row created.
+
+SQL> update DEPT_LOCATIONS set Dnumber=9 where Dlocation='Seattle';
+
+1 row updated.
+
+-----------------------------------------------------------------------------------------------
+
+SQL> update EMPLOYEE set Salary=55000 where Ssn=444444444;
+
+0 rows updated.
+
+There is no employee with SSN as 444444444 so this update returned 0 rows updated
+SQL> select * from employee where Ssn=444444444;
+
+no rows selected
+
+-----------------------------------------------------------------------------------------------
+SQL> insert into EMPLOYEE values('Jane','B','Smith','666666606','01-MAR-1980','3556 W Second Street,Miami,FL','F',85000,'666666603',5);
+insert into EMPLOYEE values('Jane','B','Smith','666666606','01-MAR-1980','3556 W Second Street,Miami,FL','F',85000,'666666603',5)
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C008832) violated 
+
+Insert failed as there already exists an employee with the SSN as 666666606 - here are the details
+
+FNAME
+--------------------------------------------------
+MINIT
+--------------------------------------------------
+LNAME							  SSN BDATE
+-------------------------------------------------- ---------- ---------
+ADDRESS
+--------------------------------------------------------------------------------
+SEX	       SALARY  SUPER_SSN	DNO
+---------- ---------- ---------- ----------
+Ray
+H
+King						    666666606 16-AUG-49
+
+FNAME
+--------------------------------------------------
+MINIT
+--------------------------------------------------
+LNAME							  SSN BDATE
+-------------------------------------------------- ---------- ---------
+ADDRESS
+--------------------------------------------------------------------------------
+SEX	       SALARY  SUPER_SSN	DNO
+---------- ---------- ---------- ----------
+213 Delk Road,Seattle,WA
+M		44500  666666604	  8
+
+
+
+-----------------------------------------------------------------------------------------------
+SQL> update WORKS_ON set hours=25 where Pno=1 and Essn='666884444';
+
+0 rows updated.
+
+Here is the WORKS_ON entry for essn=666884444 - the person works on PNO as 7.
+However we're searching for PNO as 1 - therefore 0 rows are updated as the PNO does not match
+
+SQL> select * from works_on where essn=666884444;
+
+      ESSN	  PNO	   HOURS
+---------- ---------- ----------
+ 666884444	    7	      40
+
+
+
+-----------------------------------------------------------------------------------------------
+SQL> delete from EMPLOYEE where Ssn='432765098';
+delete from EMPLOYEE where Ssn='432765098'
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (SYSTEM.SYS_C008840) violated - child record 
+found 
+
+The employee with ssn=432765098 has a supervisor with ssn = 444444402
+This supervisor_ssn is a foreign key to the ssn column and we do not have any CASCADE set to the constraint
+Hence, we are not able to delete.
+
+NOTE: IF we set ON DELETE option for the foreign key constraint, the delete operation will behave differently.
+
+-----------------------------------------------------------------------------------------------
+
+SQL> delete from DEPARTMENT where Dnumber=9;
+delete from DEPARTMENT where Dnumber=9
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (SYSTEM.SYS_C008834) violated - child record 
+found 
+
+Department table has a foreign key called Mgr_ssn.
+In this case, for department number 9, the mgr_ssn is 112244668
+This mgr_ssn is present in the employee table and hence we're not able to delete.
+
+NOTE: IF we set ON DELETE option for the foreign key constraint, the delete operation will behave differently.
+-----------------------------------------------------------------------------------------------
+
+SQL> delete from DEPENDENT where Essn='666666608';
+
+3 rows deleted.
+
+SQL> set ECHO OFF;
+SQL> spool off;
