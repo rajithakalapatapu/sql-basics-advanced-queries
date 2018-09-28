@@ -1,56 +1,119 @@
 SQL> start create_cmd.sql
+SQL> SET ECHO ON;
+SQL> 
+SQL> drop table Dept_Locations;
 
 Table dropped.
 
+SQL> drop table Works_on;
 
 Table dropped.
 
+SQL> drop table Project;
 
 Table dropped.
 
+SQL> drop table Dependent;
 
 Table dropped.
 
+SQL> drop table Employee;
 
 Table dropped.
 
+SQL> drop table Department;
 
 Table dropped.
 
+SQL> 
+SQL> Create table Employee(Fname varchar(15) NOT NULL,
+  2  			   Minit varchar(15) NOT NULL,
+  3  			   Lname varchar(15) NOT NULL,
+  4  			   Ssn int NOT NULL,
+  5  			   Bdate date NOT NULL,
+  6  			   Address varchar(15) NOT NULL,
+  7  			   Sex char(10) NOT NULL,
+  8  			   Salary int NOT NULL,
+  9  			   Super_ssn int NOT NULL,
+ 10  			   Dno int NOT NULL);
 
 Table created.
 
+SQL> 
+SQL> Create table Department(Dname varchar(15) NOT NULL,
+  2  			     Dnumber int NOT NULL,
+  3  			     Mgr_ssn int NOT NULL,
+  4  			     Mgr_start_date date NOT NULL);
 
 Table created.
 
+SQL> 
+SQL> Create table Dept_Locations(Dnumber int NOT NULL,
+  2  				 Dlocation varchar(15) NOT NULL);
 
 Table created.
 
+SQL> 
+SQL> Create table Project(Pname varchar(20) NOT NULL,
+  2  			  Pnumber int NOT NULL,
+  3  			  Plocation varchar(20) NOT NULL,
+  4  			  Dnum int NOT NULL);
 
 Table created.
 
+SQL> 
+SQL> Create table Works_on(Essn int NOT NULL,
+  2  			   Pno int NOT NULL,
+  3  			   Hours int NOT NULL);
 
 Table created.
 
+SQL> 
+SQL> Create table Dependent(Essn int NOT NULL,
+  2  			    Dependent_name varchar(20) NOT NULL,
+  3  			    Sex char(15) NOT NULL,
+  4  			    Bdate date NOT NULL,
+  5  			    Relationship varchar(15) NOT NULL);
 
 Table created.
 
+SQL> 
+SQL> 
+SQL> Alter table Department add(primary key(Dnumber));
 
 Table altered.
 
+SQL> 
+SQL> Alter table Employee add(primary key(Ssn),
+  2  			      foreign key (Dno) references Department(Dnumber));
 
 Table altered.
 
+SQL> 
+SQL> Alter table Dept_Locations add(primary key(Dnumber,Dlocation),
+  2  				    foreign key (Dnumber) references Department(Dnumber));
 
 Table altered.
 
+SQL> 
+SQL> Alter table Project add(primary key(Pnumber),
+  2  			     foreign key (Dnum) references Department(Dnumber));
 
 Table altered.
 
+SQL> 
+SQL> Alter table Works_on add(primary key(Essn,Pno),
+  2  			      foreign key (Essn) references Employee(Ssn),
+  3  			      foreign key (Pno) references Project(Pnumber));
 
 Table altered.
 
+SQL> 
+SQL> Alter table Dependent add(primary key(Dependent_name),
+  2  			       foreign key (Essn) references Employee(Ssn));
 
 Table altered.
 
+SQL> 
+SQL> SET ECHO OFF;
 SQL> spool off

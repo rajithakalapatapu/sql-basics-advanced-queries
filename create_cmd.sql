@@ -1,3 +1,5 @@
+SET ECHO ON;
+
 drop table Dept_Locations;
 drop table Works_on;
 drop table Project;
@@ -42,24 +44,20 @@ Create table Dependent(Essn int NOT NULL,
 
 Alter table Department add(primary key(Dnumber));
 
-Alter table Employee add(primary key(Ssn),foreign key (Dno) references Department(Dnumber));
+Alter table Employee add(primary key(Ssn),
+		         foreign key (Dno) references Department(Dnumber));
 
+Alter table Dept_Locations add(primary key(Dnumber,Dlocation),
+			       foreign key (Dnumber) references Department(Dnumber));
 
+Alter table Project add(primary key(Pnumber),
+			foreign key (Dnum) references Department(Dnumber));
 
+Alter table Works_on add(primary key(Essn,Pno),
+			 foreign key (Essn) references Employee(Ssn),
+			 foreign key (Pno) references Project(Pnumber));
 
-Alter table Dept_Locations add(primary key(Dnumber,Dlocation),foreign key (Dnumber) references Department(Dnumber));
+Alter table Dependent add(primary key(Dependent_name),
+			  foreign key (Essn) references Employee(Ssn));
 
-Alter table Project add(primary key(Pnumber),foreign key (Dnum) references Department(Dnumber));
-
-Alter table Works_on add(primary key(Essn,Pno),foreign key (Essn) references Employee(Ssn),foreign key (Pno) references Project(Pnumber));
-
-Alter table Dependent add(primary key(Dependent_name),foreign key (Essn) references Employee(Ssn));
-
-
-
-
-
-
-
-
-
+SET ECHO OFF;
