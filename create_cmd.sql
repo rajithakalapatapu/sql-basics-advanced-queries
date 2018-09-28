@@ -4,8 +4,8 @@ drop table Dept_Locations;
 drop table Works_on;
 drop table Project;
 drop table Dependent;
-drop table Employee;
-drop table Department;
+drop table Department CASCADE CONSTRAINTS;
+drop table Employee CASCADE CONSTRAINTS;
 
 Create table Employee(Fname varchar(15) NOT NULL, 
 		      Minit varchar(15) NOT NULL,
@@ -36,15 +36,16 @@ Create table Works_on(Essn int NOT NULL,
 		      Hours int NOT NULL);
 
 Create table Dependent(Essn int NOT NULL, 
-		       Dependent_name varchar(20) NOT NULL,
+		       Dependent_name varchar(32) NOT NULL,
                        Sex char(15) NOT NULL,
 	               Bdate date NOT NULL,
-	               Relationship varchar(15) NOT NULL);
+	               Relationship varchar(32) NOT NULL);
 
 
 Alter table Department add(primary key(Dnumber));
 
 Alter table Employee add(primary key(Ssn),
+			 foreign key (Super_ssn) references Employee(Ssn),
 		         foreign key (Dno) references Department(Dnumber));
 
 Alter table Dept_Locations add(primary key(Dnumber,Dlocation),
