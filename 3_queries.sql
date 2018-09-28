@@ -1,0 +1,12 @@
+set ECHO ON;
+insert into DEPARTMENT values('Services',1,'123456789','11-AUG-2012');
+insert into DEPARTMENT values('Purchasing',3,'990110110','02-FEB-2013');
+insert into DEPARTMENT values('Customers',12,'333445555','14-JAN-2013');
+update DEPT_LOCATIONS set Dnumber=9 where Dlocation='Seattle';
+update EMPLOYEE set Salary=55000 where Ssn=444444444;
+insert into EMPLOYEE values('Jane','B','Smith','666666606','01-MAR-1980','3556 W Second Street,Miami,FL','F',85000,'666666603',5);
+update WORKS_ON set hours=25 where Pno=1 and Essn='666884444';
+delete from EMPLOYEE where Ssn='432765098';
+delete from DEPARTMENT where Dnumber=9;
+delete from DEPENDENT where Essn='666666608';
+set ECHO OFF;
