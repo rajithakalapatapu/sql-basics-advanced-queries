@@ -1,5 +1,7 @@
 SET ECHO ON;
 insert into EMPLOYEE values('James', 'E', 'Jordan', '888665151', '10-NOV-1927', '450 Stone,Houston,TX', 'M', 55000, null, 1
+);
+insert into EMPLOYEE values('MISSING','M','MANAGER','888665555','01-JAN-1999','4536 hies,houston,tx','M',35000,null,5
 ); 
 insert into EMPLOYEE values('Frank', 'T', 'Wong', '333445555', '08-DEC-1945', '638 Voss,Houston,TX', 'M', 40000, '888665555', 5
 ); 

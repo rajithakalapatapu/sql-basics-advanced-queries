@@ -35,6 +35,8 @@ insert into PROJECT values('SearchEngine', 22, 'Arlington', 6
 ); 
 insert into PROJECT values('MotherBoard', 29, 'Milwaukee', 7
 ); 
+insert into PROJECT values('Missing Project',3,'houston',5
+);
 insert into PROJECT values(
 ); 
 SET ECHO OFF;
