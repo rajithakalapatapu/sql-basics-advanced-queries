@@ -1,5 +1,9 @@
+Due to the presence of Circular References i have removed the not null constraint from mgr_ssn in Department Table
+
+
+
+
 SQL> start create_cmd.sql
-SQL> SET ECHO ON;
 SQL> 
 SQL> drop table Dept_Locations;
 
@@ -17,46 +21,46 @@ SQL> drop table Dependent;
 
 Table dropped.
 
-SQL> drop table Employee;
+SQL> drop table Department CASCADE CONSTRAINTS;
 
 Table dropped.
 
-SQL> drop table Department;
+SQL> drop table Employee CASCADE CONSTRAINTS;
 
 Table dropped.
 
 SQL> 
-SQL> Create table Employee(Fname varchar(15) NOT NULL,
-  2  			   Minit varchar(15) NOT NULL,
-  3  			   Lname varchar(15) NOT NULL,
+SQL> Create table Employee(Fname varchar(50) NOT NULL,
+  2  			   Minit varchar(50),
+  3  			   Lname varchar(50) NOT NULL,
   4  			   Ssn int NOT NULL,
   5  			   Bdate date NOT NULL,
-  6  			   Address varchar(15) NOT NULL,
+  6  			   Address varchar(256) NOT NULL,
   7  			   Sex char(10) NOT NULL,
   8  			   Salary int NOT NULL,
-  9  			   Super_ssn int NOT NULL,
+  9  			   Super_ssn int,
  10  			   Dno int NOT NULL);
 
 Table created.
 
 SQL> 
-SQL> Create table Department(Dname varchar(15) NOT NULL,
+SQL> Create table Department(Dname varchar(32) NOT NULL,
   2  			     Dnumber int NOT NULL,
-  3  			     Mgr_ssn int NOT NULL,
+  3  			     Mgr_ssn int,
   4  			     Mgr_start_date date NOT NULL);
 
 Table created.
 
 SQL> 
 SQL> Create table Dept_Locations(Dnumber int NOT NULL,
-  2  				 Dlocation varchar(15) NOT NULL);
+  2  				 Dlocation varchar(32) NOT NULL);
 
 Table created.
 
 SQL> 
-SQL> Create table Project(Pname varchar(20) NOT NULL,
+SQL> Create table Project(Pname varchar(32) NOT NULL,
   2  			  Pnumber int NOT NULL,
-  3  			  Plocation varchar(20) NOT NULL,
+  3  			  Plocation varchar(32) NOT NULL,
   4  			  Dnum int NOT NULL);
 
 Table created.
@@ -70,10 +74,10 @@ Table created.
 
 SQL> 
 SQL> Create table Dependent(Essn int NOT NULL,
-  2  			    Dependent_name varchar(20) NOT NULL,
+  2  			    Dependent_name varchar(32) NOT NULL,
   3  			    Sex char(15) NOT NULL,
   4  			    Bdate date NOT NULL,
-  5  			    Relationship varchar(15) NOT NULL);
+  5  			    Relationship varchar(32) NOT NULL);
 
 Table created.
 
@@ -85,7 +89,8 @@ Table altered.
 
 SQL> 
 SQL> Alter table Employee add(primary key(Ssn),
-  2  			      foreign key (Dno) references Department(Dnumber));
+  2  			      foreign key (Super_ssn) references Employee(Ssn),
+  3  			      foreign key (Dno) references Department(Dnumber));
 
 Table altered.
 
@@ -115,5 +120,9 @@ SQL> Alter table Dependent add(primary key(Dependent_name),
 Table altered.
 
 SQL> 
+SQL> Alter table Department add(foreign key(Mgr_ssn) references Employee(Ssn));
+
+Table altered.
+
 SQL> SET ECHO OFF;
 SQL> spool off
