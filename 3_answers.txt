@@ -9,7 +9,7 @@ insert into DEPARTMENT values('Services',1,'123456789','11-AUG-2012')
 ERROR at line 1:
 ORA-00001: unique constraint (SYSTEM.SYS_C008831) violated 
 
-The above failed because the department table has an entry for dnumber = 1
+The above failed because the department table already has an entry for dnumber = 1
 Headquarters				  1  888665555 19-JUN-71
 
 -----------------------------------------------------------------------------------------------
