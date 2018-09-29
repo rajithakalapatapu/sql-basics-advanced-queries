@@ -1,0 +1,827 @@
+SQL> start 4_queries.sql
+SQL> 
+SQL> REM 1. Select all the attributes for all employees whose last name is 'Jones' or ‘James’.
+SQL> select * from employee where lname='Jones' OR lname='James';
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+Jared                                                                           
+D                                                                               
+James                                               111111100 10-OCT-66         
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+123 Peachtr,Atlanta,GA                                                          
+M               85000                     6                                     
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+John                                                                            
+C                                                                               
+James                                               555555500 30-JUN-75         
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+766 Bloomington,Sacramento,CA                                                   
+M               81000                     8                                     
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+Jon                                                                             
+C                                                                               
+Jones                                               111111101 14-NOV-67         
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+111 Allgood,Atlanta,GA                                                          
+M               45000  111111100          6                                     
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+Megan                                                                           
+G                                                                               
+Jones                                               254937381 02-MAR-61         
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+528 Stone CT,Chicago,IL                                                         
+F               62000  666666600          8                                     
+                                                                                
+
+SQL> 
+SQL> REM 2. Select all the attributes for all employees whose first name is 'Kim' or ‘Wilson’.
+SQL> select * from employee where fname='Kim' OR fname='Wilson';
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+Kim                                                                             
+C                                                                               
+Grace                                               333333300 23-OCT-70         
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+667 Mills Ave,Sacramento,CA                                                     
+F               79000                     6                                     
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+Kim                                                                             
+G                                                                               
+Ted                                                 444222666 15-APR-68         
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+3648 Tree Cir,Austin,TX                                                         
+M               50000  999999999          8                                     
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+Wilson                                                                          
+A                                                                               
+Holmes                                              242916639 02-JUN-71         
+
+FNAME                                                                           
+--------------------------------------------------                              
+MINIT                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN BDATE             
+-------------------------------------------------- ---------- ---------         
+ADDRESS                                                                         
+--------------------------------------------------------------------------------
+SEX            SALARY  SUPER_SSN        DNO                                     
+---------- ---------- ---------- ----------                                     
+21 South Co,Arlington,TX                                                        
+M               72500  555555500          4                                     
+                                                                                
+
+SQL> 
+SQL> REM 3. Select the names and Ssn of employees who work on more than one project and count the total hours that the employees work on.
+SQL> select E.fname,E.lname,E.Ssn ,count(W.Pno),sum(W.Hours) from employee E JOIN Works_on W on E.Ssn=W.ESsn group by E.fname,E.lname,E.Ssn having count(Pno)>1;
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+Jake                                                                            
+Sheen                                               245239264            3      
+          55                                                                    
+                                                                                
+Wilson                                                                          
+Holmes                                              242916639            3      
+          35                                                                    
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+                                                                                
+Erin                                                                            
+Maxfield                                            242535609            2      
+          40                                                                    
+                                                                                
+John                                                                            
+Smith                                               123456789            2      
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+          41                                                                    
+                                                                                
+Jennifer                                                                        
+Wallace                                             987654321            2      
+          35                                                                    
+                                                                                
+Red                                                                             
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+Bacher                                              666666613            3      
+          50                                                                    
+                                                                                
+Leonard                                                                         
+Moody                                               349273344            2      
+          25                                                                    
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+Joyce                                                                           
+English                                             453453453            2      
+          40                                                                    
+                                                                                
+Richard                                                                         
+Koelbel                                             214370999            2      
+          39                                                                    
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+                                                                                
+Percy                                                                           
+Liang                                               398172999            2      
+          20                                                                    
+                                                                                
+Roy                                                                             
+Lewallen                                            999999999           13      
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+          40                                                                    
+                                                                                
+Alicia                                                                          
+Zelaya                                              999887777            2      
+          40                                                                    
+                                                                                
+Ahmad                                                                           
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+Jabbar                                              987987987            2      
+          40                                                                    
+                                                                                
+Cameron                                                                         
+Thirteen                                            111422203            2      
+          50                                                                    
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                     SSN COUNT(W.PNO)      
+-------------------------------------------------- ---------- ------------      
+SUM(W.HOURS)                                                                    
+------------                                                                    
+Frank                                                                           
+Wong                                                333445555            3      
+          30                                                                    
+                                                                                
+
+15 rows selected.
+
+SQL> 
+SQL> REM 4. For each PROJECT, retrieve the project name, number, and location plus the number of employees who works on the project.
+SQL> select P.Pname,P.Pnumber,P.Plocation,count(W.Essn) from project P JOIN works_on W on P.Pnumber=W.Pno group by P.Pnumber,P.Pname,P.Plocation;
+
+PNAME                               PNUMBER PLOCATION                           
+-------------------------------- ---------- --------------------------------    
+COUNT(W.ESSN)                                                                   
+-------------                                                                   
+Advertizing                              70 Arlington                           
+            4                                                                   
+                                                                                
+MotherBoard                              29 Milwaukee                           
+            3                                                                   
+                                                                                
+Benefits                                 30 Stafford                            
+            4                                                                   
+                                                                                
+
+PNAME                               PNUMBER PLOCATION                           
+-------------------------------- ---------- --------------------------------    
+COUNT(W.ESSN)                                                                   
+-------------                                                                   
+DataMining                               13 Sacramento                          
+            1                                                                   
+                                                                                
+EntityAnnot                               4 Houston                             
+            3                                                                   
+                                                                                
+InkjetPrinters                           91 Milwaukee                           
+           10                                                                   
+                                                                                
+
+PNAME                               PNUMBER PLOCATION                           
+-------------------------------- ---------- --------------------------------    
+COUNT(W.ESSN)                                                                   
+-------------                                                                   
+EventManagement                           6 Sacramento                          
+            5                                                                   
+                                                                                
+Analysis                                  5 Sacramento                          
+            6                                                                   
+                                                                                
+Computerization                          10 Stafford                            
+            6                                                                   
+                                                                                
+
+PNAME                               PNUMBER PLOCATION                           
+-------------------------------- ---------- --------------------------------    
+COUNT(W.ESSN)                                                                   
+-------------                                                                   
+FoodDistribution                          7 Sacramento                          
+            5                                                                   
+                                                                                
+LaserPrinters                            92 Milwaukee                           
+            5                                                                   
+                                                                                
+Missing Project                           3 houston                             
+            1                                                                   
+                                                                                
+
+PNAME                               PNUMBER PLOCATION                           
+-------------------------------- ---------- --------------------------------    
+COUNT(W.ESSN)                                                                   
+-------------                                                                   
+HumanResource                            95 Arlington                           
+            4                                                                   
+                                                                                
+DatabaseSystems                          62 Atlanta                             
+           11                                                                   
+                                                                                
+Middleware                               63 Atlanta                             
+            9                                                                   
+                                                                                
+
+PNAME                               PNUMBER PLOCATION                           
+-------------------------------- ---------- --------------------------------    
+COUNT(W.ESSN)                                                                   
+-------------                                                                   
+SearchEngine                             22 Arlington                           
+            2                                                                   
+                                                                                
+OperatingSystem                          61 Sacramento                          
+           11                                                                   
+                                                                                
+ConfigMgmt                               11 Atlanta                             
+            3                                                                   
+                                                                                
+
+PNAME                               PNUMBER PLOCATION                           
+-------------------------------- ---------- --------------------------------    
+COUNT(W.ESSN)                                                                   
+-------------                                                                   
+Reorganization                           20 Houston                             
+            4                                                                   
+                                                                                
+
+19 rows selected.
+
+SQL> 
+SQL> REM 5. For each employee who works in department 5 on a project in Houston, retrieve the employee’s Ssn, first and last names, and the project number, name, and hours for each project that the employee works on.
+SQL> select E.Ssn,E.fname,E.lname,W.hours from employee E JOIN works_on W on E.Ssn=W.Essn where W.pno=(select P.Pnumber from project P where P.Dnum=5 and P.Plocation='Houston');
+
+       SSN FNAME                                                                
+---------- --------------------------------------------------                   
+LNAME                                                   HOURS                   
+-------------------------------------------------- ----------                   
+ 636669233 Michael                                                              
+Morgan                                                     11                   
+                                                                                
+ 242916639 Wilson                                                               
+Holmes                                                      5                   
+                                                                                
+ 111422203 Cameron                                                              
+Thirteen                                                   45                   
+                                                                                
+
+SQL> 
+SQL> REM 6. Retrieve the last name and first name of all employees who work more than 40 hours per week total (on all their projects).
+SQL> select E.fname,E.lname from employee E,works_on W where W.Hours>40 and E.Ssn=W.Essn;
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                                           
+--------------------------------------------------                              
+Josh                                                                            
+Zell                                                                            
+                                                                                
+Jeff                                                                            
+Chase                                                                           
+                                                                                
+Nandita                                                                         
+Ball                                                                            
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                                                           
+--------------------------------------------------                              
+Andrea                                                                          
+Sondrini                                                                        
+                                                                                
+Cameron                                                                         
+Thirteen                                                                        
+                                                                                
+
+SQL> 
+SQL> REM 7. Select the first and last name of each employee who is a supervisor, plus count the total number of employees supervised by each supervisor.
+SQL> select S.fname,S.lname,count(E.Ssn) from employee E JOIN employee S on E.Ssn=S.Super_ssn group by S.fname,S.lname;
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Jenny                                                                           
+Vos                                                           1                 
+                                                                                
+Carl                                                                            
+Reedy                                                         1                 
+                                                                                
+Jose                                                                            
+Barbara                                                       1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+James                                                                           
+Miller                                                        1                 
+                                                                                
+Ahmad                                                                           
+Jabbar                                                        1                 
+                                                                                
+Tom                                                                             
+Brand                                                         1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Alec                                                                            
+Best                                                          1                 
+                                                                                
+Naveen                                                                          
+Drew                                                          1                 
+                                                                                
+Kim                                                                             
+Ted                                                           1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Gregory                                                                         
+Laurie                                                        1                 
+                                                                                
+Sheldon                                                                         
+Cucuou                                                        1                 
+                                                                                
+Brad                                                                            
+Knight                                                        1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Red                                                                             
+Bacher                                                        1                 
+                                                                                
+Erin                                                                            
+Maxfield                                                      1                 
+                                                                                
+Sunil                                                                           
+Gupta                                                         1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Andrea                                                                          
+Sondrini                                                      1                 
+                                                                                
+Cindy                                                                           
+Burklow                                                       1                 
+                                                                                
+Alicia                                                                          
+Zelaya                                                        1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Ramesh                                                                          
+Narayan                                                       1                 
+                                                                                
+Jon                                                                             
+Jones                                                         1                 
+                                                                                
+Nandita                                                                         
+Ball                                                          1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Lyle                                                                            
+Leslie                                                        1                 
+                                                                                
+Billie                                                                          
+King                                                          1                 
+                                                                                
+Jon                                                                             
+Kramer                                                        1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Ray                                                                             
+King                                                          1                 
+                                                                                
+Arnold                                                                          
+Head                                                          1                 
+                                                                                
+Andy                                                                            
+Vile                                                          1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+John                                                                            
+Ed                                                            1                 
+                                                                                
+Debra                                                                           
+Hall                                                          1                 
+                                                                                
+Zach                                                                            
+Geller                                                        1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Josh                                                                            
+Zell                                                          1                 
+                                                                                
+Kate                                                                            
+King                                                          1                 
+                                                                                
+Megan                                                                           
+Jones                                                         1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Helga                                                                           
+Pataki                                                        1                 
+                                                                                
+Jennifer                                                                        
+Joy                                                           1                 
+                                                                                
+willie                                                                          
+Mary                                                          1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Penny                                                                           
+Wolowitz                                                      1                 
+                                                                                
+Wilson                                                                          
+Holmes                                                        1                 
+                                                                                
+Alex                                                                            
+Yu                                                            1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Richard                                                                         
+Koelbel                                                       1                 
+                                                                                
+Frank                                                                           
+Wong                                                          1                 
+                                                                                
+Joyce                                                                           
+English                                                       1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Jeff                                                                            
+Chase                                                         1                 
+                                                                                
+Jill                                                                            
+Jarvis                                                        1                 
+                                                                                
+Roy                                                                             
+Lewallen                                                      1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Michael                                                                         
+Morgan                                                        1                 
+                                                                                
+Jisha                                                                           
+Carpenter                                                     1                 
+                                                                                
+Jake                                                                            
+Sheen                                                         1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Jennifer                                                                        
+Wallace                                                       1                 
+                                                                                
+Justin                                                                          
+Mark                                                          1                 
+                                                                                
+Chris                                                                           
+Carter                                                        1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Bonnie                                                                          
+Bays                                                          1                 
+                                                                                
+Sam                                                                             
+Snedden                                                       1                 
+                                                                                
+Gerald                                                                          
+Small                                                         1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Sammy                                                                           
+Hall                                                          1                 
+                                                                                
+Leonard                                                                         
+Moody                                                         1                 
+                                                                                
+John                                                                            
+Smith                                                         1                 
+                                                                                
+
+FNAME                                                                           
+--------------------------------------------------                              
+LNAME                                              COUNT(E.SSN)                 
+-------------------------------------------------- ------------                 
+Cameron                                                                         
+Thirteen                                                      1                 
+                                                                                
+Christina                                                                       
+Hisel                                                         1                 
+                                                                                
+
+59 rows selected.
+
+SQL> 
+SQL> REM 8.  For each project determine the total hours that employees work on that project per week.
+SQL> select sum(Hours),Pno from works_on group by Pno;
+
+SUM(HOURS)        PNO                                                           
+---------- ----------                                                           
+       332         91                                                           
+        59         30                                                           
+        34         22                                                           
+        45          6                                                           
+        65         11                                                           
+        40         29                                                           
+        18         13                                                           
+        72         70                                                           
+        34         20                                                           
+       101         95                                                           
+        89          5                                                           
+
+SUM(HOURS)        PNO                                                           
+---------- ----------                                                           
+        61          4                                                           
+       358         61                                                           
+       250         63                                                           
+        74          7                                                           
+        45          3                                                           
+       347         62                                                           
+       158         92                                                           
+       119         10                                                           
+
+19 rows selected.
+
+SQL> 
+SQL> REM 9.  Find which employee has more than 2 dependents.
+SQL> select Essn,count(Dependent_name) from dependent group by Essn having count(Dependent_name)>2;
+
+      ESSN COUNT(DEPENDENT_NAME)                                                
+---------- ---------------------                                                
+ 444444401                     3                                                
+
+SQL> 
+SQL> REM 10.  Find which employee has more than 1 children.
+SQL> select Essn,count(Dependent_name) from Dependent where Relationship='Children' group by Essn having count(Dependent_name)>1;
+
+      ESSN COUNT(DEPENDENT_NAME)                                                
+---------- ---------------------                                                
+ 444444401                     2                                                
+
+SQL> 
+SQL> REM 11.  Find all the employee who works in the department that is located in Atlanta. Select their first name and last name.
+SQL> select fname,lname from employee where Address='Atlanta';
+
+no rows selected
+
+SQL> 
+SQL> REM 12. Find all the departments located in Houston and list how many projects are their under those departments.
+SQL> select Dnum,count(Pnumber) from Project where Plocation='Houston' group by Dnum;
+
+      DNUM COUNT(PNUMBER)                                                       
+---------- --------------                                                       
+         1              1                                                       
+         5              1                                                       
+
+SQL> 
+SQL> set echo off;
+SQL> spool off;
