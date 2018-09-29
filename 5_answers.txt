@@ -1,0 +1,33 @@
+SQL> start 5_queries.sql
+SQL>
+---> Queries to violate the intergrity constraints.
+
+The first query violates the unique constraint since the values 11 and Austin already exist in Dept_Locations table and both are primary keys.
+ 
+SQL> insert into DEPT_LOCATIONS values(11,'Austin');
+insert into DEPT_LOCATIONS values(11,'Austin')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (SYSTEM.SYS_C008835) violated 
+
+This query violates the integrity constraint since the Department table doesnot have the Dnum=9999 which is the foreign key for project table
+
+SQL> insert into PROJECT values('insert fail',999,'Arlington',9999);
+insert into PROJECT values('insert fail',999,'Arlington',9999)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SYS_C008838) violated - parent key not 
+found 
+
+The department table has the Dname,Mgr_start_date as NOT NULL,hence passing NULL values violates NOT NUll constraint.
+
+SQL> insert into DEPARTMENT values(null,3,88996786,null);
+insert into DEPARTMENT values(null,3,88996786,null)
+                              *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("SYSTEM"."DEPARTMENT"."DNAME") 
+
+
+SQL> 
+SQL> SET ECHO OFF;
+SQL> spool off

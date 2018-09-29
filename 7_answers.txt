@@ -1,0 +1,21 @@
+SQL> start 7_queries.sql
+SQL> 
+SQL> insert into employee values('Regina','G','Jeorge',567890357,'07-JAN-1977','Millers Road,Dallas','F',98000, 666666609,7);
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> insert into department values('CEO office', 78, 567890357, '01-JAN-2000');
+
+1 row created.
+
+SQL> 
+SQL> 
+SQL> insert into dept_locations values (78, 'Irving');
+
+1 row created.
+
+SQL> 
+SQL> set echo off;
+SQL> spool off

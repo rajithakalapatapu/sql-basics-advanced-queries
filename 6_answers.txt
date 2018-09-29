@@ -1,0 +1,20 @@
+SQL> start 6_queries.sql
+
+----> Delete a record that violates referential integrity
+
+Pnumber attribute is the Primary key in Project table,it is also a Foreign key in Works_on table.
+Pnumber=7 is referenced by the Works_on table.
+Hence deleting 7 violates the referential integrity constraint as there are entries in the child table Works_on referencing parent table Project 
+
+SQL> 
+SQL> delete from PROJECT where Pnumber=7;
+delete from PROJECT where Pnumber=7
+*
+ERROR at line 1:
+ORA-02292: integrity constraint (SYSTEM.SYS_C008841) violated - child record 
+found 
+
+
+SQL> 
+SQL> set echo off;
+SQL> spool off
