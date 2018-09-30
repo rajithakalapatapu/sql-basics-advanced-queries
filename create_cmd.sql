@@ -1,3 +1,10 @@
+drop table Employee;
+drop table Department;
+drop table Dept_Locations;
+drop table Project;
+drop table Works_on;
+drop table Dependent;
+
 Create table Employee(Fname varchar(15),Minit varchar(15),Lname varchar(15),Ssn int,Bdate date,Address varchar(15),Sex char(10),Salary int,Super_ssn int, Dno int);
 
 Create table Department(Dname varchar(15),Dnumber int,Mgr_ssn int,Mgr_start_date date);
