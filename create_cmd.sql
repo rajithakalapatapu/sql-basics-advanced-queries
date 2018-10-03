@@ -20,7 +20,7 @@ Create table Employee(Fname varchar(50) NOT NULL,
 
 Create table Department(Dname varchar(32) NOT NULL,
 			Dnumber int NOT NULL,
-			Mgr_ssn int NOT NULL,
+			Mgr_ssn int,
 			Mgr_start_date date NOT NULL);
 
 Create table Dept_Locations(Dnumber int NOT NULL,
@@ -61,4 +61,5 @@ Alter table Works_on add(primary key(Essn,Pno),
 Alter table Dependent add(primary key(Dependent_name),
 			  foreign key (Essn) references Employee(Ssn));
 
+Alter table Department add(foreign key(Mgr_ssn) references Employee(Ssn));
 SET ECHO OFF;
