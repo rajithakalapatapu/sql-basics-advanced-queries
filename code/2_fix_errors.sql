@@ -2,11 +2,11 @@ SET ECHO ON;
 
 REM These are the missing entries that caused errors while inserting values into EMPLOYEE and WORKS_ON tables
 
-insert into EMPLOYEE values('MISSING','M','MANAGER','888665555','01-JAN-1999','4536 hies,houston,tx','M',35000,null,5); 
+insert into EMPLOYEE values('MISSING','M','MANAGER','888665555','01-JAN-1999','4536 hies,houston,tx','M',35000,999999999,5); 
 insert into PROJECT values('Missing Project',3,'houston',5);
 
 
-REM After inserting the above, I re-run the failed EMPLOYEE entries and failed WORKS_ON, DEPENDENT entries
+REM After inserting the above, I re-run the failed EMPLOYEE entries and failed WORKS_ON, DEPENDENT entries.
 
 insert into EMPLOYEE values ('Frank', 'T', 'Wong', '333445555', '08-DEC-1945', '638 Voss,Houston,TX', 'M', 40000, '888665555', 5); 
 insert into EMPLOYEE values ('Jennifer', 'S', 'Wallace', '987654321', '20-JUN-1931', '291 Berry,Bellaire,TX', 'F', 43000, '888665555', 4); 
@@ -66,6 +66,10 @@ update DEPARTMENT set Mgr_ssn =  '913323708' where Dnumber =  11;
 REM Now add the NOT NULL constraint into DEPARTMENT table
 
 alter table department modify Mgr_ssn not null;
+
+REM Adding NOT NULL constraints to Super_ssn
+ 
+alter table employee modify Super_ssn not null;
 
 REM This completes the insert process and all constraints are now fully active
 REM This ends problem 2...
