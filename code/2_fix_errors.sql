@@ -67,9 +67,6 @@ REM Now add the NOT NULL constraint into DEPARTMENT table
 
 alter table department modify Mgr_ssn not null;
 
-REM Adding NOT NULL constraints to Super_ssn
- 
-alter table employee modify Super_ssn not null;
 
 REM This completes the insert process and all constraints are now fully active
 REM This ends problem 2...

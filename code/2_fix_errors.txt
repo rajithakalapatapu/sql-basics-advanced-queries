@@ -3,7 +3,7 @@ Due to circular dependencies few records in department tables are inserted with 
 SQL> 
 SQL> REM These are the missing entries that caused errors while inserting values into EMPLOYEE and WORKS_ON tables
 SQL> 
-SQL> insert into EMPLOYEE values('MISSING','M','MANAGER','888665555','01-JAN-1999','4536 hies,houston,tx','M',35000,null,5);
+SQL> insert into EMPLOYEE values('MISSING','M','MANAGER','888665555','01-JAN-1999','4536 hies,houston,tx','M',35000,999999999,5);
 
 1 row created.
 

@@ -1,4 +1,7 @@
-Due to the presence of Circular References i have removed the not null constraint from mgr_ssn in Department Table
+1-> Create all Tables.
+
+Due to the presence of Circular References between Employee and Department table I have removed the not null constraint from mgr_ssn in Department Table and Minit,Super_ssn attributes in Employee table. This allows us to insert some records with NULL for some of their foreign keys and then update the foreign key values after the records that they reference are inserted.
+
 
 
 

@@ -1,6 +1,6 @@
-SQL> start 6_queries.sql
-
 ----> Delete a record that violates referential integrity
+
+SQL> start 6_queries.sql
 
 Pnumber attribute is the Primary key in Project table,it is also a Foreign key in Works_on table.
 Pnumber=7 is referenced by the Works_on table.

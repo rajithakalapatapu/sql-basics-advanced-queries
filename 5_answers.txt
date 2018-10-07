@@ -1,6 +1,8 @@
+--> Execute 3 or more Insert commands that violate Integrity constraints.
+
 SQL> start 5_queries.sql
 SQL>
----> Queries to violate the intergrity constraints.
+
 
 The first query violates the unique constraint since the values 11 and Austin already exist in Dept_Locations table and both are primary keys.
  

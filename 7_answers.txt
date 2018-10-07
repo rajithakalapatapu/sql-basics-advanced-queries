@@ -1,3 +1,5 @@
+--> Insert Records that do not violate any Integrity constraints.
+
 SQL> start 7_queries.sql
 SQL> 
 SQL> insert into employee values('Regina','G','Jeorge',567890357,'07-JAN-1977','Millers Road,Dallas','F',98000, 666666609,7);

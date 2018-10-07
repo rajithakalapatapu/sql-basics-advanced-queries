@@ -1,3 +1,5 @@
+--> Update Values into tables which violate integrity constraints.
+
 SQL> start 4_queries.sql
 
 
@@ -9,7 +11,7 @@ insert into DEPARTMENT values('Services',1,'123456789','11-AUG-2012')
 ERROR at line 1:
 ORA-00001: unique constraint (SYSTEM.SYS_C008831) violated 
 
-The above failed because the department table already has an entry for dnumber = 1
+The above failed because the department table already has an entry for dnumber = 1. Unique Constraint Violated.
 Headquarters				  1  888665555 19-JUN-71
 
 -----------------------------------------------------------------------------------------------
@@ -20,7 +22,7 @@ insert into DEPARTMENT values('Purchasing',3,'990110110','02-FEB-2013')
 ERROR at line 1:
 ORA-00001: unique constraint (SYSTEM.SYS_C008831) violated 
 
-The above insert failed as department table already has another entry for dnumber=3
+The above insert failed due to unique constraint violation as department table already has another entry for dnumber=3.
 
 DNAME				    DNUMBER    MGR_SSN MGR_START
 -------------------------------- ---------- ---------- ---------
@@ -56,7 +58,7 @@ insert into EMPLOYEE values('Jane','B','Smith','666666606','01-MAR-1980','3556 W
 ERROR at line 1:
 ORA-00001: unique constraint (SYSTEM.SYS_C008832) violated 
 
-Insert failed as there already exists an employee with the SSN as 666666606 - here are the details
+Insert failed dut to Unique constraint violation as there already exists an employee with the SSN as 666666606 - here are the details
 
 FNAME
 --------------------------------------------------
@@ -113,7 +115,7 @@ found
 
 The employee with ssn=432765098 has a supervisor with ssn = 444444402
 This supervisor_ssn is a foreign key to the ssn column and we do not have any CASCADE set to the constraint
-Hence, we are not able to delete.
+Hence, we are not able to delete due to referential integrity constraint.
 
 NOTE: IF we set ON DELETE option for the foreign key constraint, the delete operation will behave differently.
 
@@ -128,7 +130,7 @@ found
 
 Department table has a foreign key called Mgr_ssn.
 In this case, for department number 9, the mgr_ssn is 112244668
-This mgr_ssn is present in the employee table and hence we're not able to delete.
+This mgr_ssn is present in the employee table and hence due to referential integrity constraint we're not able to delete.
 
 NOTE: IF we set ON DELETE option for the foreign key constraint, the delete operation will behave differently.
 -----------------------------------------------------------------------------------------------
